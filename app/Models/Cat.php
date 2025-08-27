@@ -24,6 +24,16 @@ class Cat extends Model
     ];
 
     // Связь: Кот принадлежит пользователю
+    public static function find(int $id): ?Cat
+    {
+        return Cat::find($id);
+    }
+
+    public static function where(string $string, int $userId)
+    {
+        return Cat::where($string, $userId);
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

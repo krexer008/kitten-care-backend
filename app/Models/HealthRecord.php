@@ -23,6 +23,11 @@ class HealthRecord extends Model
         'record_date' => 'date',
     ];
 
+    public static function find(int $id): ?HealthRecord
+    {
+        return HealthRecord::find($id);
+    }
+
     public function cat(): BelongsTo
     {
         return $this->belongsTo(Cat::class);

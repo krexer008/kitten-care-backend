@@ -1,24 +1,66 @@
-*.log
-.DS_Store
-.env
-.env.backup
-.env.production
-.phpactor.json
-.phpunit.result.cache
-/.fleet
-/.idea
-/.nova
-/.phpunit.cache
-/.vscode
-/.zed
-/auth.json
-/node_modules
-/public/build
+# Игнорируем папку с установленными зависимостями Composer
+/vendor/
+
+# Игнорируем файл окружения (содержит пароли и ключи!)
+/.env
+
+# Игнорируем папку с скомпилированными классами и сервис-провайдерами
+/bootstrap/cache/
+
+# Игнорируем папку для скомпилированных шаблонов Blade
+/storage/framework/views/
+
+# Игнорируем лог-файлы приложения
+/storage/logs/
+
+# Игнорируем папку с скомпилированными фронтенд-активами (если будете использовать)
+/public/build/
 /public/hot
-/public/storage
-/storage/*.key
-/storage/pail
-/vendor
-Homestead.json
-Homestead.yaml
-Thumbs.db
+
+# Игнорируем папки с зависимостями фронтенда (NPM)
+/node_modules/
+/yarn-error.log
+
+# Игнорируем папку для сгенерированной документации API
+/public/docs
+
+# Игнорируем папку для тестового покрытия
+/coverage/
+
+# Игнорируем резервные файлы редакторов
+*.back
+*.backup
+*.swp
+*.swo
+
+# Игнорируем файлы операционных систем
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+
+# Игнорируем файлы PHPStorm и других IDE JetBrains
+/.idea/
+*.iml
+*.ipr
+*.iws
+
+# Игнорируем файлы Visual Studio Code
+/.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Игнорируем файлы для хранения учетных данных БД (если используются)
+/*.sqlite
+/*.sqlite-journal
+
+# Игнорируем папку для деплоя (если используется)
+/.deploy/
+
+# Игнорируем файлы для тестирования (если генерируются)
+/.phpunit.result.cache

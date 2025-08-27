@@ -1,0 +1,113 @@
+### Get all cats
+GET http://localhost:8000/api/cats
+Accept: application/json
+
+### Create new cat
+POST http://localhost:8000/api/cats
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Мурзик",
+    "breed": "Дворовый",
+    "birthday": "2023-05-15",
+    "gender": "male"
+}
+
+### Get specific cat
+GET http://localhost:8000/api/cats/1
+Accept: application/json
+
+### Update cat
+PUT http://localhost:8000/api/cats/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Мурзик обновленный"
+}
+
+### Delete cat
+DELETE http://localhost:8000/api/cats/1
+Accept: application/json
+
+### Health Records ###
+### Get all health records
+GET http://localhost:8000/api/health-records
+Accept: application/json
+
+### Create health record
+POST http://localhost:8000/api/health-records
+Content-Type: application/json
+Accept: application/json
+
+{
+    "cat_id" : 1,
+    "weight" : 4.2,
+    "temperature" : 38.5,
+    "notes" : "Активный, хороший аппетит",
+    "record_date" : "2023-10-27"
+}
+
+### Get health records for specific cat
+GET http://localhost:8000/api/cats/1/health-records
+Accept: application/json
+
+### Add health record to specific cat
+POST http://localhost:8000/api/cats/1/health-records
+Content-Type: application/json
+Accept: application/json
+
+{
+    "weight" : 4.5,
+    "temperature" : 38.7,
+    "notes" : "Прибавил в весе",
+    "record_date" : "2023-10-28"
+}
+
+### Veterinary visits ###
+### Get all veterinary visits
+GET http://localhost:8000/api/veterinary-visits
+Accept: application/json
+
+### Create veterinary visit
+POST http://localhost:8000/api/veterinary-visits
+Content-Type: application/json
+Accept: application/json
+
+{
+    "cat_id": 1,
+    "clinic_name": "Вет клиника №1",
+    "reason": "Плановый осмотр",
+    "date_time": "2023-10-29 14:00:00",
+    "notes": "Все в порядке, сделали прививку",
+    "next_visit_time": "2024-04-29"
+}
+
+### Get veterinary visits for specific cat
+GET http://localhost:8000/api/cats/1/veterinary-visits
+Accept: application/json
+
+### Add veterinary visits to specific cat
+POST http://localhost:8000/api/cats/1/veterinary-visits
+Content-Type: application/json
+Accept: application/json
+
+{
+    "clinic_name": "Вет клиника №1",
+    "reason": "Консультация",
+    "date_time": "2023-11-05 16:30:00",
+    "notes": "Консультация по питанию"
+}
+
+### Get upcoming visits
+GET http://localhost:8000/api/cats/1/veterinary-visits/upcoming?days=7
+Accept: application/json
+
+### Get visit statistics
+GET http://localhost:8000/api/cats/1/veterinary-visits/stats
+Accept: application/json
+
+### Get time conflict
+GET http://localhost:8000/api/cats/1/veterinary-visits/check-time?date_time=2023-11-15 14:30:00
+Accept: application/json

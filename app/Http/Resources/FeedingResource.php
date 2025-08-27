@@ -28,6 +28,10 @@ class FeedingResource extends JsonResource
             // Включаем связанные данные, только если они были загружены (Eager Loading)
             'cat' => new CatResource($this->whenLoaded('cat')),
             'user' => new UserResource($this->whenLoaded('user')),
+
+            // Вычисляемые поля
+            'is_today' =>$this->date_time->isToday(),
+            'is_recent' =>$this->date_time->gt(now()->subHours(2)),
         ];
     }
 }
